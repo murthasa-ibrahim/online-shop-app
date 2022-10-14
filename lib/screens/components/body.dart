@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/const/constants.dart';
 import 'package:online_shop_app/models/products.dart';
+import 'package:online_shop_app/screens/details/product_details/product_details.dart';
 import 'package:online_shop_app/screens/widget/categories.dart';
 
+import '../widget/item_card.dart';
+
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,9 @@ class Body extends StatelessWidget {
         ),
         const Categories(),
         Expanded(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-          child: GridView.builder(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            child: GridView.builder(
               physics: const BouncingScrollPhysics(),
               itemCount: products.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -31,44 +34,13 @@ class Body extends StatelessWidget {
                   childAspectRatio: 0.75,
                   crossAxisSpacing: kDefaultPadding),
               itemBuilder: (context, index) => ItemCard(
-                    product: products[index],
-                  )),
-        ))
-      ],
-    );
-  }
-}
-
-class ItemCard extends StatelessWidget {
-  const ItemCard({Key? key, this.function, required this.product})
-      : super(key: key);
-  final Product product;
-  final Function? function;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(kDefaultPadding),
-            decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(16),
+                press: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>  Details(product: products[index],),
+                )),
+                product: products[index],
+              ),
             ),
-            child: Image.asset(product.image),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
-          child: Text(
-            product.title,
-            style: const TextStyle(color: kTextLightColor),
-          ),
-        ),
-        Text(
-          '\$ ${product.price}',
-          style:const  TextStyle(fontWeight: FontWeight.bold),
         )
       ],
     );

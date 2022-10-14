@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:online_shop_app/const/constants.dart';
 
 class Product {
   final String image, title, description;
@@ -20,7 +21,7 @@ List<Product> products = [
       id: 1,
       title: "Office Code",
       image: "assets/images/kindpng_7228623.png",
-      description: "dummy text 1 ",
+      description: kdescription,
       price: 234,
       size: 12,
       color: const Color(0xFF3D83AE)),
@@ -28,7 +29,7 @@ List<Product> products = [
       id: 2,
       title: "Slider Bag",
       image: "assets/images/kindpng_1942124.png",
-      description: "dummy text 2 ",
+      description: kdescription,
       price: 234,
       size: 8,
       color: Color.fromARGB(255, 114, 57, 98)),
@@ -36,7 +37,7 @@ List<Product> products = [
       id: 3,
       title: "Office Code",
       image: "assets/images/kindpng_1942203.png",
-      description: "dummy text 3 ",
+      description: kdescription,
       price: 234,
       size: 8,
       color: const Color(0xFFFB7883)),
@@ -44,7 +45,7 @@ List<Product> products = [
       id: 4,
       title: "Office Code",
       image: "assets/images/kindpng_1618723.png",
-      description: "dummy text 4 ",
+      description: kdescription,
       price: 234,
       size: 8,
       color: const Color(0xFFAEAEAE)),
@@ -52,7 +53,7 @@ List<Product> products = [
       id: 5,
       title: "Office Code",
       image: "assets/images/kindpng_6962560.png",
-      description: "dummy text 4 ",
+      description: kdescription,
       price: 234,
       size: 8,
       color: const Color(0xFFE6B398)),

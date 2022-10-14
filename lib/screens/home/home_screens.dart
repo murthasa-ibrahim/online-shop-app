@@ -10,8 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(),
-      body: Body(),
-      
+      body:  Body(),
     );
   }
 
