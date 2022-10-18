@@ -4,22 +4,34 @@ import 'package:online_shop_app/models/products.dart';
 import 'package:online_shop_app/screens/details/widget/body.dart';
 
 import '../../../const/constants.dart';
+import '../widget/local_notification.dart';
 
-class Details extends StatelessWidget {
+class Details extends StatefulWidget {
   const Details({Key? key,required this.product}) : super(key: key);
 final Product product;
+
+  @override
+  State<Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  @override
+  void initState() {
+  NotificationApi().initNotification();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: product.color,
+      backgroundColor: widget.product.color,
          appBar: buildAppBar(),
-         body: Body(product: product,),
+         body: Body(product: widget.product,),
     );
   }
 
   AppBar buildAppBar() {
     return AppBar(
-        backgroundColor: product.color,
+        backgroundColor: widget.product.color,
         elevation: 0,
         actions: [
            IconButton(

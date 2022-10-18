@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:online_shop_app/screens/details/widget/local_notification.dart';
 
 import '../../../const/constants.dart';
 import '../../../models/products.dart';
@@ -42,7 +44,13 @@ class AddToCart extends StatelessWidget {
                           12), // <-- Radius
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    NotificationApi.showNotification(
+                      title: "Product ordered successffully",
+                      body: "Your order ${product.title} is conformed",
+                      payload: "mur.abs"
+                    );
+                  },
                   child: Text(
                     "Buy Now".toUpperCase(),
                     style: const TextStyle(
